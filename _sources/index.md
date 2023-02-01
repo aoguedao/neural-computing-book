@@ -1,6 +1,6 @@
 # Neural Computing Book
 
-1st Edition by [Alonso G. Ogueda Oliva](https://aoguedao.github.io/) and [Padmanabhan (PADHU) Seshaiyer](https://math.gmu.edu/~pseshaiy/).
+1st Edition by [Alonso G. Ogueda Oliva](https://aoguedao.github.io/) and [Padmanabhan (Padhu) Seshaiyer](https://math.gmu.edu/~pseshaiy/).
 
 
 You can [view this text online][ghpages] or [view the source][source].
