@@ -230,6 +230,24 @@ title="Launch on Binder"
 
       </li>
       
+      <li>
+        <a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/machine_learning_overview.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
     </ul>
   </div>
 </div>
@@ -711,7 +729,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7fa2dfd6dc10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7f3203d86490&gt;
 </pre></div>
 </div>
 <img alt="../_images/machine_learning_overview_5_1.png" src="../_images/machine_learning_overview_5_1.png" />
@@ -745,7 +763,7 @@ $<span class="math notranslate nohighlight">\(
 y \approx \hat{f}(X)
 \)</span>$</p>
 <p>Broadly speaking, most statistical learning methods for this task can be characterized as either <em>parametric</em> or <em>non-parametric</em>. Parametric models make assumptions about the functional form or shape of <span class="math notranslate nohighlight">\(f\)</span> in order to reduce the searching space. A typical example is Linear Regression, where we will need to estimate/fit/train only a few coefficients. On the other hand, non-parametric models do not make explicit assumptions about f, instead they seek an estimate of f that gets as close to the data points as possible. As you can imagine, the parametric models can be very interpretable and non-parametric models can be more accurate. It is important to select an adequate model depending on the trade-off between prediction and interpretability we need.</p>
-<p><img alt="Complexity Interpretability" src="images/complexity_interpretability.gif" /></p>
+<p><img alt="Complexity Interpretability" src="../_images/complexity_interpretability.gif" /></p>
 <p><a class="reference external" href="https://ieeexplore.ieee.org/document/8844682/figures#figures">Image Source</a></p>
 <p>Most classical machine learning problems fall into one of two categories: <em>supervised</em> or <em>unsupervised</em>. The example with the wine dataset is supervised, since we have labels for each sample. If these labels are numeric (score of wine quality) we are in a <strong>Regression</strong> model; however, if labels are categories (good/bad quality), it is called a <strong>Classification</strong> model.</p>
 <p>By contrast, unsupervised learning describes a more challenging situation where observations do not have any label. The situation is referred to as unsupervised because we lack a response variable that can supervise our analysis. A classical example is a <strong>Clustering</strong> model, when the goal is to find relationships between samples and create groups.</p>
@@ -800,9 +818,9 @@ MAE(y, \hat{y}) = \frac{1}{n} \sum_{i=1}^n \left\lvert y_i - \hat{y}_i \right\rv
 <h4>Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">#</a></h4>
 <p>A confusion matrix, also known as an error matrix, is a specific table layout that allows visualization of the performance of an algorithm. Each row of the matrix represents the instances in an actual class, while each column represents the instances in a predicted class, or vice versa – both variants are found in literature. The name stems from the fact that it makes it easy to see whether the system is confusing two classes (i.e. commonly mislabeling one as another). <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">- Source -</a></p>
 <p>For a binary classification problem a confusion matrix looks like this:</p>
-<p><img alt="confusion_matrix" src="images/confusion_matrix.png" /></p>
+<p><img alt="confusion_matrix" src="../_images/confusion_matrix.png" /></p>
 <p>A really useful example:</p>
-<p><img alt="meme_cm" src="images/confusion_matrix_pregnancy.jpg" /></p>
+<p><img alt="meme_cm" src="../_images/confusion_matrix_pregnancy.jpg" /></p>
 <p>Initially, the aim is to maximize the sum of the well-classified elements, however, this depends on the problem to be solved.</p>
 </section>
 <section id="accuracy">
@@ -848,14 +866,14 @@ MAE(y, \hat{y}) = \frac{1}{n} \sum_{i=1}^n \left\lvert y_i - \hat{y}_i \right\rv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.8073720256760155
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5952316684821684
 </pre></div>
 </div>
 </div>
 </div>
 <p>Is this a good model?</p>
 <p>Answer:</p>
-<p><img alt="cox" src="images/box.jpg" /></p>
+<p><img alt="cox" src="../_images/box.jpg" /></p>
 </section>
 </section>
 </section>

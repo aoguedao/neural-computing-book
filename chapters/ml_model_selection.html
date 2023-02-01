@@ -230,6 +230,24 @@ title="Launch on Binder"
 
       </li>
       
+      <li>
+        <a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/ml_model_selection.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
     </ul>
   </div>
 </div>
@@ -413,7 +431,7 @@ title="Print to PDF"
 <h1>ML - Model Selection<a class="headerlink" href="#ml-model-selection" title="Permalink to this headline">#</a></h1>
 <p>Now, we have to asssess our models in order to use the best one. We already know that a random model is not the best one, even a model who predict the mean (regression) or the most common label (classification) is too simple. So, why not use a model that memorizes all the features and their label? This is not a good idea, because the algorithm won’t be able to predict new samples.</p>
 <p>These concepts are called <strong><em>Underfitting</em></strong> and <strong><em>Overfitting</em></strong> respectively.</p>
-<p><img alt="underfitting-overfitting" src="images/underfitting-overfitting.jpg" /></p>
+<p><img alt="underfitting-overfitting" src="../_images/underfitting-overfitting.jpg" /></p>
 <p><a class="reference external" href="http://dx.doi.org/10.3389/fpsyt.2022.826111">Source</a></p>
 <p>The bias–variance dilemma or bias–variance problem is the conflict in trying to simultaneously minimize these two sources of error that prevent supervised learning algorithms from generalizing beyond their training set.</p>
 <p><img alt="Bias-Variance Trade-Off" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bias_and_variance_contributing_to_total_error.svg/640px-Bias_and_variance_contributing_to_total_error.svg.png" /></p>
@@ -439,7 +457,7 @@ MSE\left(y, \hat{f}(x) \right)
 <section id="cross-validation">
 <h2>Cross-Validation<a class="headerlink" href="#cross-validation" title="Permalink to this headline">#</a></h2>
 <p>Learning the parameters of a model function and testing it on the same dataset is a methodological mistake. To avoid this, a common practice is when performing a (supervised) machine learning experiment to keep part of the data available as a test set. Here is a flowchart of the typical cross-validation workflow in model training.</p>
-<p><img alt="cros-validation" src="images/grid_search_workflow.png" /></p>
+<p><img alt="cros-validation" src="../_images/grid_search_workflow.png" /></p>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">Source</a></p>
 <p>scikit-learn and others machine learning libraries have implemented functions for split your dataset in train and test sets. Let’s use a Breast Cancer dataset as an example.</p>
 <div class="cell docutils container">
@@ -723,7 +741,7 @@ Test set accuracy: 0.965034965034965
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.9122807 , 0.94736842, 0.99122807, 0.98245614, 0.97345133])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.92982456, 0.94736842, 0.97368421, 0.97368421, 0.95575221])
 </pre></div>
 </div>
 </div>
@@ -737,7 +755,7 @@ Test set accuracy: 0.965034965034965
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>96.14% accuracy with a standard deviation of 2.86%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>95.61% accuracy with a standard deviation of 1.66%
 </pre></div>
 </div>
 </div>
@@ -746,7 +764,7 @@ Test set accuracy: 0.965034965034965
 <section id="hyper-parameters">
 <h2>Hyper-Parameters<a class="headerlink" href="#hyper-parameters" title="Permalink to this headline">#</a></h2>
 <p>As we know, some algorithms have parameters that are not trainable, for example regularization parameters in Ridge or Lasso regression, or the number of estimators (trees) in Random Forest models. We can use Cross-Validation for finding the best hyper-parameters for the problem we are working on.</p>
-<p><img alt="cross_validation" src="images/grid_search_cross_validation.png" /></p>
+<p><img alt="cross_validation" src="../_images/grid_search_cross_validation.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
@@ -776,7 +794,7 @@ Test set accuracy: 0.965034965034965
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;max_features&#39;: &#39;sqrt&#39;, &#39;n_estimators&#39;: 1000}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;max_features&#39;: &#39;sqrt&#39;, &#39;n_estimators&#39;: 100}
 </pre></div>
 </div>
 </div>

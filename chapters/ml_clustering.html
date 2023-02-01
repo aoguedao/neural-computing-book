@@ -230,6 +230,24 @@ title="Launch on Binder"
 
       </li>
       
+      <li>
+        <a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/ml_clustering.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
     </ul>
   </div>
 </div>
@@ -451,7 +469,7 @@ title="Print to PDF"
 <h1>ML - Clustering<a class="headerlink" href="#ml-clustering" title="Permalink to this headline">#</a></h1>
 <section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
-<p><img alt="Develop Countries" src="images/developed_countries.png" /></p>
+<p><img alt="Develop Countries" src="../_images/developed_countries.png" /></p>
 <p>World map showing country classifications as per the IMF (International Monetary Fund) and the UN (United Nations) (last updated 2022).</p>
 <ul class="simple">
 <li><p>Blue: Developed countries</p></li>
@@ -639,28 +657,28 @@ title="Print to PDF"
       <td>Afghanistan</td>
       <td>43.828</td>
       <td>974.580338</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Albania</td>
       <td>76.423</td>
       <td>5937.029526</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Algeria</td>
       <td>72.301</td>
       <td>6223.367465</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Angola</td>
       <td>42.731</td>
       <td>4797.231267</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -980,85 +998,203 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Afghanistan</td>
-      <td>43.828</td>
-      <td>974.580338</td>
+      <th>5</th>
+      <td>Australia</td>
+      <td>81.235</td>
+      <td>34435.36744</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Albania</td>
-      <td>76.423</td>
-      <td>5937.029526</td>
+      <th>6</th>
+      <td>Austria</td>
+      <td>79.829</td>
+      <td>36126.49270</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Algeria</td>
-      <td>72.301</td>
-      <td>6223.367465</td>
+      <th>7</th>
+      <td>Bahrain</td>
+      <td>75.635</td>
+      <td>29796.04834</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>Angola</td>
-      <td>42.731</td>
-      <td>4797.231267</td>
+      <th>9</th>
+      <td>Belgium</td>
+      <td>79.441</td>
+      <td>33692.60508</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>Bangladesh</td>
-      <td>64.062</td>
-      <td>1391.253792</td>
+      <th>20</th>
+      <td>Canada</td>
+      <td>80.653</td>
+      <td>36319.23501</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>137</th>
-      <td>Vietnam</td>
-      <td>74.249</td>
-      <td>2441.576404</td>
+      <th>34</th>
+      <td>Denmark</td>
+      <td>78.332</td>
+      <td>35278.41874</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>138</th>
-      <td>West Bank and Gaza</td>
-      <td>73.422</td>
-      <td>3025.349798</td>
+      <th>43</th>
+      <td>Finland</td>
+      <td>79.313</td>
+      <td>33207.08440</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>139</th>
-      <td>Yemen, Rep.</td>
-      <td>62.698</td>
-      <td>2280.769906</td>
+      <th>44</th>
+      <td>France</td>
+      <td>80.657</td>
+      <td>30470.01670</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>140</th>
-      <td>Zambia</td>
-      <td>42.384</td>
-      <td>1271.211593</td>
+      <th>47</th>
+      <td>Germany</td>
+      <td>79.406</td>
+      <td>32170.37442</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>141</th>
-      <td>Zimbabwe</td>
-      <td>43.487</td>
-      <td>469.709298</td>
+      <th>49</th>
+      <td>Greece</td>
+      <td>79.483</td>
+      <td>27538.41188</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Hong Kong, China</td>
+      <td>82.208</td>
+      <td>39724.97867</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Iceland</td>
+      <td>81.757</td>
+      <td>36180.78919</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Ireland</td>
+      <td>78.885</td>
+      <td>40675.99635</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Israel</td>
+      <td>80.745</td>
+      <td>25523.27710</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Italy</td>
+      <td>80.546</td>
+      <td>28569.71970</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Japan</td>
+      <td>82.603</td>
+      <td>31656.06806</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Kuwait</td>
+      <td>77.588</td>
+      <td>47306.98978</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>Netherlands</td>
+      <td>79.762</td>
+      <td>36797.93332</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>New Zealand</td>
+      <td>80.204</td>
+      <td>25185.00911</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Norway</td>
+      <td>80.196</td>
+      <td>49357.19017</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>Singapore</td>
+      <td>79.972</td>
+      <td>47143.17964</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>Slovenia</td>
+      <td>77.926</td>
+      <td>25768.25759</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>Spain</td>
+      <td>80.941</td>
+      <td>28821.06370</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>Sweden</td>
+      <td>80.884</td>
+      <td>33859.74835</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>Switzerland</td>
+      <td>81.701</td>
+      <td>37506.41907</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>Taiwan</td>
+      <td>78.400</td>
+      <td>28718.27684</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>United Kingdom</td>
+      <td>79.425</td>
+      <td>33203.26128</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>United States</td>
+      <td>78.242</td>
+      <td>42951.65309</td>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>80 rows × 4 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1094,203 +1230,85 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <th>5</th>
-      <td>Australia</td>
-      <td>81.235</td>
-      <td>34435.36744</td>
+      <th>0</th>
+      <td>Afghanistan</td>
+      <td>43.828</td>
+      <td>974.580338</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>Austria</td>
-      <td>79.829</td>
-      <td>36126.49270</td>
+      <th>1</th>
+      <td>Albania</td>
+      <td>76.423</td>
+      <td>5937.029526</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>Bahrain</td>
-      <td>75.635</td>
-      <td>29796.04834</td>
+      <th>2</th>
+      <td>Algeria</td>
+      <td>72.301</td>
+      <td>6223.367465</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>Belgium</td>
-      <td>79.441</td>
-      <td>33692.60508</td>
+      <th>3</th>
+      <td>Angola</td>
+      <td>42.731</td>
+      <td>4797.231267</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>20</th>
-      <td>Canada</td>
-      <td>80.653</td>
-      <td>36319.23501</td>
+      <th>8</th>
+      <td>Bangladesh</td>
+      <td>64.062</td>
+      <td>1391.253792</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>34</th>
-      <td>Denmark</td>
-      <td>78.332</td>
-      <td>35278.41874</td>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>Vietnam</td>
+      <td>74.249</td>
+      <td>2441.576404</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>43</th>
-      <td>Finland</td>
-      <td>79.313</td>
-      <td>33207.08440</td>
+      <th>138</th>
+      <td>West Bank and Gaza</td>
+      <td>73.422</td>
+      <td>3025.349798</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>44</th>
-      <td>France</td>
-      <td>80.657</td>
-      <td>30470.01670</td>
+      <th>139</th>
+      <td>Yemen, Rep.</td>
+      <td>62.698</td>
+      <td>2280.769906</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>47</th>
-      <td>Germany</td>
-      <td>79.406</td>
-      <td>32170.37442</td>
+      <th>140</th>
+      <td>Zambia</td>
+      <td>42.384</td>
+      <td>1271.211593</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>49</th>
-      <td>Greece</td>
-      <td>79.483</td>
-      <td>27538.41188</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>Hong Kong, China</td>
-      <td>82.208</td>
-      <td>39724.97867</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>Iceland</td>
-      <td>81.757</td>
-      <td>36180.78919</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>62</th>
-      <td>Ireland</td>
-      <td>78.885</td>
-      <td>40675.99635</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>Israel</td>
-      <td>80.745</td>
-      <td>25523.27710</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>Italy</td>
-      <td>80.546</td>
-      <td>28569.71970</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>Japan</td>
-      <td>82.603</td>
-      <td>31656.06806</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>Kuwait</td>
-      <td>77.588</td>
-      <td>47306.98978</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>90</th>
-      <td>Netherlands</td>
-      <td>79.762</td>
-      <td>36797.93332</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>91</th>
-      <td>New Zealand</td>
-      <td>80.204</td>
-      <td>25185.00911</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>Norway</td>
-      <td>80.196</td>
-      <td>49357.19017</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>113</th>
-      <td>Singapore</td>
-      <td>79.972</td>
-      <td>47143.17964</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>115</th>
-      <td>Slovenia</td>
-      <td>77.926</td>
-      <td>25768.25759</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>118</th>
-      <td>Spain</td>
-      <td>80.941</td>
-      <td>28821.06370</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>122</th>
-      <td>Sweden</td>
-      <td>80.884</td>
-      <td>33859.74835</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>Switzerland</td>
-      <td>81.701</td>
-      <td>37506.41907</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>Taiwan</td>
-      <td>78.400</td>
-      <td>28718.27684</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>133</th>
-      <td>United Kingdom</td>
-      <td>79.425</td>
-      <td>33203.26128</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>134</th>
-      <td>United States</td>
-      <td>78.242</td>
-      <td>42951.65309</td>
+      <th>141</th>
+      <td>Zimbabwe</td>
+      <td>43.487</td>
+      <td>469.709298</td>
       <td>0</td>
     </tr>
   </tbody>
 </table>
+<p>80 rows × 4 columns</p>
 </div></div></div>
 </div>
 <section id="another-example">

@@ -231,6 +231,24 @@ title="Launch on Binder"
 
       </li>
       
+      <li>
+        <a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/ml_classification.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
     </ul>
   </div>
 </div>
@@ -578,7 +596,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4745/3810344009.py:9: UserWarning: Matplotlib is currently using module://matplotlib_inline.backend_inline, which is a non-GUI backend, so cannot show the figure.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_5760/3810344009.py:9: UserWarning: Matplotlib is currently using module://matplotlib_inline.backend_inline, which is a non-GUI backend, so cannot show the figure.
   fig.show()
 </pre></div>
 </div>
@@ -611,7 +629,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4745/2432193437.py:10: UserWarning: Matplotlib is currently using module://matplotlib_inline.backend_inline, which is a non-GUI backend, so cannot show the figure.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_5760/2432193437.py:10: UserWarning: Matplotlib is currently using module://matplotlib_inline.backend_inline, which is a non-GUI backend, so cannot show the figure.
   fig.show()
 </pre></div>
 </div>
@@ -669,7 +687,7 @@ $<span class="math notranslate nohighlight">\(J(\beta) = \frac{1}{2} \sum_{i=1}^
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4745/966449380.py:6: UserWarning: Matplotlib is currently using module://matplotlib_inline.backend_inline, which is a non-GUI backend, so cannot show the figure.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_5760/966449380.py:6: UserWarning: Matplotlib is currently using module://matplotlib_inline.backend_inline, which is a non-GUI backend, so cannot show the figure.
   fig.show()
 </pre></div>
 </div>
@@ -756,7 +774,7 @@ g'(z) &amp;= \frac{-1}{(1+e^{-z})^2} (-e^{-z}) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.21 ms ± 6.78 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.22 ms ± 6.62 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 </pre></div>
 </div>
 </div>
@@ -983,7 +1001,7 @@ g'(z) &amp;= \frac{-1}{(1+e^{-z})^2} (-e^{-z}) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f67ae159b90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7ff027e97410&gt;
 </pre></div>
 </div>
 <img alt="../_images/ml_classification_27_1.png" src="../_images/ml_classification_27_1.png" />
@@ -1052,7 +1070,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x7f67ad4c1ed0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x7ff0287fa510&gt;
 </pre></div>
 </div>
 <img alt="../_images/ml_classification_31_1.png" src="../_images/ml_classification_31_1.png" />
@@ -1101,11 +1119,11 @@ weighted avg       1.00      1.00      1.00      1797
 <section id="k-nearest-neighbors">
 <h3>K Nearest Neighbors<a class="headerlink" href="#k-nearest-neighbors" title="Permalink to this headline">#</a></h3>
 <p>K Nearest Neighbors (kNN) is a non-parametric algorithm. Once the hyperparameter <span class="math notranslate nohighlight">\(k\)</span> has been fixed, there are no more parameters. The idea is simple: the output label is the most common label among the 𝑘 nearest neighbors. In the following example, if <span class="math notranslate nohighlight">\(k=3\)</span> the green circle is labeled as red, but if <span class="math notranslate nohighlight">\(k=5\)</span> then it is labeled as blue.</p>
-<p><img alt="KNN" src="images/KnnClassification.png" /></p>
+<p><img alt="KNN" src="../_images/KnnClassification.png" /></p>
 <p><a class="reference external" href="https://commons.wikimedia.org/wiki/File:KnnClassification.svg">Source</a></p>
 <p>The algorithm is really simple. The training phase consists only of storing the feature matrix and its labels.</p>
 <p>For the prediction phase we need to compute the distance with every training vector and then find the nearest neighbors.</p>
-<p><img alt="kNN Algorithm" src="images/knn_algorithm.jpg" /></p>
+<p><img alt="kNN Algorithm" src="../_images/knn_algorithm.jpg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
@@ -1126,7 +1144,7 @@ weighted avg       1.00      1.00      1.00      1797
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x7f67ad2d5cd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x7ff0278aa090&gt;
 </pre></div>
 </div>
 <img alt="../_images/ml_classification_39_1.png" src="../_images/ml_classification_39_1.png" />

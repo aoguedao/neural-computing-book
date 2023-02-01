@@ -230,6 +230,24 @@ title="Launch on Binder"
 
       </li>
       
+      <li>
+        <a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/neural_networks_part1.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
     </ul>
   </div>
 </div>
@@ -414,9 +432,9 @@ title="Print to PDF"
 <section id="motivation">
 <h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
 <p>Artificial neural networks are models trying to imitate a biological neural network as we can see in the following figure:</p>
-<p><img alt="Neural Network" src="images/neural_networks.png" /></p>
+<p><img alt="Neural Network" src="../_images/neural_networks.png" /></p>
 <p>Neural networks have been became popular in the last decade since the great variety of taks that they can address, not just regression and classification challenges. Another reason is that computer are more powerful that a few decades ago, that implies we can work with more data (not only tabular) and also train more complex models.</p>
-<p><img alt="NN Cat" src="images/cat_nn.png" /></p>
+<p><img alt="NN Cat" src="../_images/cat_nn.png" /></p>
 </section>
 <section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
@@ -499,7 +517,7 @@ title="Print to PDF"
 <p>where <span class="math notranslate nohighlight">\(W\)</span> is the matrix of weights and <span class="math notranslate nohighlight">\(b\)</span> the vector of <span class="math notranslate nohighlight">\(biases\)</span>. The number of columns
 in W matches the number of neurons that produced the vector a at the previous layer. The number of rows in <span class="math notranslate nohighlight">\(W\)</span> matches the number of neurons at the current layer. The number of components in <span class="math notranslate nohighlight">\(b\)</span> also matches the number of neurons at the current layer.</p>
 <p>Let’s consider the following example of an artificial neural network with four layers:</p>
-<p><img alt="Example NN with four layers" src="images/nn_four_layers.png" /></p>
+<p><img alt="Example NN with four layers" src="../_images/nn_four_layers.png" /></p>
 <p>Since the input data has the form <span class="math notranslate nohighlight">\(x \in \mathbb{R}^2\)</span>, the weights and biases for the second layer may be represented by a matrix <span class="math notranslate nohighlight">\(W^{[2]} \in \mathbb{R}^{2 \times 2}\)</span> and a vector <span class="math notranslate nohighlight">\(b^{[2]} \in \mathbb{R}^2\)</span>, respectively. The output from the second layer has the form</p>
 <div class="math notranslate nohighlight">
 \[
