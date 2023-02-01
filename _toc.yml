@@ -2,8 +2,15 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+root: index
+parts:
+  - caption: Computational Thinking
+    chapters:
+    - file: chapters/computational_thinking_part1
+    - file: chapters/computational_thinking_part2
+  - caption: Regression
+    chapters:
+    - file: chapters/ml_regresssion
+  - caption: Classification
+    chapters:
+    - file: chapters/ml_classification

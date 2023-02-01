@@ -4,11 +4,12 @@
 title: Neural Computing
 author: Alonso Ogueda & Padhu Seshaiyer
 logo: images/GMU_PLogo_4CP.png
+exclude_patterns: ["README.md"]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: auto
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -21,12 +22,20 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/aoguedao/neural-computing-book  # Online location of your book
+  path_to_book: /  # Optional path to your book, relative to the repository root
+  branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
+  favicon: "images/favicon.ico"
   use_issues_button: true
   use_repository_button: true
+
+latex:
+  latex_engine: pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex: true
+
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
