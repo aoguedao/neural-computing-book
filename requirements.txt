@@ -5,3 +5,5 @@ ghp-import
 pandas
 scipy
 scikit-learn
+tensorflow
+deepxde
