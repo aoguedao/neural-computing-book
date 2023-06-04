@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Neural Computing
-author: Alonso Ogueda & Padhu Seshaiyer
+author: Alonso Ogueda-Oliva & Padhu Seshaiyer
 logo: images/GMU_PLogo_4CP.png
 exclude_patterns: ["README.md"]
 
@@ -36,6 +36,8 @@ html:
 latex:
   latex_engine: pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
   use_jupyterbook_latex: true
+  latex_documents:
+    targetname: neural-computing-book.tex
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"

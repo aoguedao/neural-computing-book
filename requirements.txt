@@ -1,3 +1,7 @@
 jupyter-book
 matplotlib
 numpy
+ghp-import
+pandas
+scipy
+scikit-learn
