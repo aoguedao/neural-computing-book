@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Physics-Informed Neural Networks &#8212; Neural Computing</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,60 +63,92 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/pinn';</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/GMU_PLogo_4CP.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Neural Computing</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/GMU_PLogo_4CP.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/GMU_PLogo_4CP.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -114,361 +157,268 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Computational Thinking
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational Thinking</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="computational_thinking_part1.html">
-   Introduction to Computational Thinking
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="computational_thinking_part2.html">
-   Introduction to Computational Thinking - Part 2
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="computational_thinking_part1.html">Introduction to Computational Thinking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computational_thinking_part2.html">Introduction to Computational Thinking - Part 2</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Regression
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regression</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ml_regresssion.html">
-   ML - Regression
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ml_regresssion.html">ML - Regression</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Classification
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Classification</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ml_classification.html">
-   ML - Classification
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ml_classification.html">ML - Classification</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/aoguedao/neural-computing-book/main?urlpath=tree/chapters/pinn.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/pinn.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/pinn.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/aoguedao/neural-computing-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/aoguedao/neural-computing-book/issues/new?title=Issue%20on%20page%20%2Fchapters/pinn.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/pinn.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/aoguedao/neural-computing-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/aoguedao/neural-computing-book/issues/new?title=Issue%20on%20page%20%2Fchapters/pinn.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/chapters/pinn.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   Motivation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pinns">
-     PINNs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation-deepxde">
-   Implementation: DeepXDE
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-burguers-equation">
-   Example: Burguers Equation
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Physics-Informed Neural Networks</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivation">
-   Motivation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pinns">
-     PINNs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementation-deepxde">
-   Implementation: DeepXDE
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-burguers-equation">
-   Example: Burguers Equation
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Physics-Informed Neural Networks</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pinns">PINNs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-deepxde">Implementation: DeepXDE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-burguers-equation">Example: Burguers Equation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="physics-informed-neural-networks">
-<h1>Physics-Informed Neural Networks<a class="headerlink" href="#physics-informed-neural-networks" title="Permalink to this headline">#</a></h1>
+<h1>Physics-Informed Neural Networks<a class="headerlink" href="#physics-informed-neural-networks" title="Permalink to this heading">#</a></h1>
 <section id="motivation">
-<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">#</a></h2>
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading">#</a></h2>
 <p>For years mathematicians and physicists are trying to model the world with differential equations. However, since the advent of techniques such as machine learning, neural networks and deep learning together with greater computing power, community has speculated that we could learn automatically (algorithms) anything with a enough amount of data. However, it seems this is not really true.</p>
 <p>Philosophical Question: Could have a <em>machine</em> discovered Newton’s laws?</p>
 <section id="pinns">
-<h3>PINNs<a class="headerlink" href="#pinns" title="Permalink to this headline">#</a></h3>
+<h3>PINNs<a class="headerlink" href="#pinns" title="Permalink to this heading">#</a></h3>
 <p>In 2019, Raissi, Perdikaris and Karniadakis introduced Physics-Informed Neural Networks (PINNs), neural networks that are trained to solve supervised learning tasks while respecting any given law of physics described by general nonlinear partial differential equations (<a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0021999118307125">source</a>). PINNs are nowadays used to solve PDEs, fractional equations, and integral-differential equations.</p>
 <p><strong>Idea</strong></p>
 <p>PINNs approximate PDE solutions by training a neural network to minimize a loss function, including:</p>
@@ -480,7 +430,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>PINNs can solve differential equations expressed, in the most general form, like:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -518,14 +468,14 @@ $<span class="math notranslate nohighlight">\(
 <p><a class="reference external" href="https://link.springer.com/article/10.1007/s10915-022-01939-z">Source</a></p>
 </section>
 <section id="implementation-deepxde">
-<h2>Implementation: DeepXDE<a class="headerlink" href="#implementation-deepxde" title="Permalink to this headline">#</a></h2>
+<h2>Implementation: DeepXDE<a class="headerlink" href="#implementation-deepxde" title="Permalink to this heading">#</a></h2>
 <p>DeepXDE is a library for scientific machine learning and physics-informed learning. It support several tensor libraries as backend (TensorFlow, PyTorch, JAX, among other).</p>
 <p>One of its main features is that enables the user code to be compact, resembling closely the mathematical formulation. We don’t have to worry much about the technical aspect of the code, but rather about the mathematical model.</p>
 <p><img alt="DeepXDE" src="../_images/pinn.webp" /></p>
 <p><a class="reference external" href="https://deepxde.readthedocs.io/en/latest/">Source</a></p>
 </section>
 <section id="example-burguers-equation">
-<h2>Example: Burguers Equation<a class="headerlink" href="#example-burguers-equation" title="Permalink to this headline">#</a></h2>
+<h2>Example: Burguers Equation<a class="headerlink" href="#example-burguers-equation" title="Permalink to this heading">#</a></h2>
 <p>We will solve a Burquers equation</p>
 <div class="math notranslate nohighlight">
 \[
@@ -539,7 +489,7 @@ u(-1,t)=u(1,t)=0, \quad u(x,0) = - \sin(\pi x).
 <p><strong>Remarks:</strong></p>
 <ul class="simple">
 <li><p>If you are working on Google Colab you need to install <code class="docutils literal notranslate"><span class="pre">DeepXDE</span></code> and enable GPU.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">deepxde</span></code></p></li>
 <li><p>Go to Menu <code class="docutils literal notranslate"><span class="pre">Menu</span> <span class="pre">&gt;</span> <span class="pre">Runtime</span> <span class="pre">&gt;</span> <span class="pre">Change</span> <span class="pre">Runtime</span></code> and change hardware accelaration to <strong>GPU</strong>.</p></li>
 </ol>
@@ -563,60 +513,26 @@ u(-1,t)=u(1,t)=0, \quad u(x,0) = - \sin(\pi x).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using backend: tensorflow.compat.v1
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-04 20:49:42.352822: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-06-04 20:49:42.416507: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-06-04 20:49:42.417795: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">deepxde</span> <span class="k">as</span> <span class="nn">dde</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">deepxde.backend</span> <span class="kn">import</span> <span class="n">tf</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">mambaforge</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">nc</span><span class="o">-</span><span class="n">book</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">deepxde</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">.__about__</span> <span class="kn">import</span> <span class="n">__version__</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1"># Should import backend before importing anything else</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">backend</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">callbacks</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">data</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">mambaforge</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">nc</span><span class="o">-</span><span class="n">book</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">deepxde</span><span class="o">/</span><span class="n">backend</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">100</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="n">set_default_backend</span><span class="p">(</span><span class="s2">&quot;tensorflow.compat.v1&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="k">return</span> <span class="s2">&quot;tensorflow.compat.v1&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">100</span> <span class="n">load_backend</span><span class="p">(</span><span class="n">get_preferred_backend</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="k">def</span> <span class="nf">is_enabled</span><span class="p">(</span><span class="n">api</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return true if the api is enabled by the current backend.</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="sd">     Args:</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span><span class="sd">         bool: ``True`` if the API is enabled by the current backend.</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="sd">     &quot;&quot;&quot;</span>
-
-<span class="nn">File ~/mambaforge/envs/nc-book/lib/python3.11/site-packages/deepxde/backend/__init__.py:36,</span> in <span class="ni">load_backend</span><span class="nt">(mod_name)</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Unsupported backend: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mod_name</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using backend: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mod_name</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">36</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;.</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">mod_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">),</span> <span class="vm">__name__</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">thismod</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="vm">__name__</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="c1"># log backend name</span>
-
-<span class="nn">File ~/mambaforge/envs/nc-book/lib/python3.11/importlib/__init__.py:126,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>             <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">126</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">mambaforge</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">nc</span><span class="o">-</span><span class="n">book</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">deepxde</span><span class="o">/</span><span class="n">backend</span><span class="o">/</span><span class="n">tensorflow_compat_v1</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;TF_FORCE_GPU_ALLOW_GROWTH&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;true&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">.tensor</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># pylint: disable=redefined-builtin</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">mambaforge</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">nc</span><span class="o">-</span><span class="n">book</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">deepxde</span><span class="o">/</span><span class="n">backend</span><span class="o">/</span><span class="n">tensorflow_compat_v1</span><span class="o">/</span><span class="n">tensor</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;tensorflow.compat.v1 backend implementation&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">Version</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">tensorflow.compat.v1</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">if</span> <span class="n">Version</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">Version</span><span class="p">(</span><span class="s2">&quot;2.7.0&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;DeepXDE requires TensorFlow&gt;=2.7.0.&quot;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;tensorflow&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-04 20:49:43.452555: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using backend: tensorflow.compat.v1
+Other supported backends: tensorflow, pytorch, jax, paddle.
+paddle supports more examples now and is recommended.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/deepxde/nn/initializers.py:118: The name tf.keras.initializers.he_normal is deprecated. Please use tf.compat.v1.keras.initializers.he_normal instead.
 </pre></div>
 </div>
 </div>
@@ -683,16 +599,6 @@ u(-1,t)=u(1,t)=0, \quad u(x,0) = - \sin(\pi x).
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/aoguedao/mambaforge/envs/pinn/lib/python3.9/site-packages/skopt/sampler/sobol.py:246: UserWarning: The balance properties of Sobol&#39; points require n to be a power of 2. 0 points have been previously generated, then: n=0+2542=2542. 
-  warnings.warn(&quot;The balance properties of Sobol&#39; points require &quot;
-/home/aoguedao/mambaforge/envs/pinn/lib/python3.9/site-packages/skopt/sampler/sobol.py:246: UserWarning: The balance properties of Sobol&#39; points require n to be a power of 2. 0 points have been previously generated, then: n=0+82=82. 
-  warnings.warn(&quot;The balance properties of Sobol&#39; points require &quot;
-/home/aoguedao/mambaforge/envs/pinn/lib/python3.9/site-packages/skopt/sampler/sobol.py:246: UserWarning: The balance properties of Sobol&#39; points require n to be a power of 2. 0 points have been previously generated, then: n=0+162=162. 
-  warnings.warn(&quot;The balance properties of Sobol&#39; points require &quot;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Where</p>
 <ul class="simple">
@@ -718,20 +624,16 @@ u(-1,t)=u(1,t)=0, \quad u(x,0) = - \sin(\pi x).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/aoguedao/mambaforge/envs/pinn/lib/python3.9/site-packages/deepxde/nn/tensorflow_compat_v1/fnn.py:103: UserWarning: `tf.layers.dense` is deprecated and will be removed in a future version. Please use `tf.keras.layers.Dense` instead.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compiling model...
+Building feed-forward neural network...
+&#39;build&#39; took 0.066141 s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/deepxde/nn/tensorflow_compat_v1/fnn.py:116: UserWarning: `tf.layers.dense` is deprecated and will be removed in a future version. Please use `tf.keras.layers.Dense` instead.
   return tf.layers.dense(
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Compiling model...
-Building feed-forward neural network...
-&#39;build&#39; took 0.043998 s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-12 11:43:25.601584: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;compile&#39; took 0.297932 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;compile&#39; took 0.575497 s
 </pre></div>
 </div>
 </div>
@@ -744,38 +646,113 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initializing variables...
-Training model...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training model...
 
 Step      Train loss                        Test loss                         Test metric
-0         [2.30e-01, 2.71e-01, 9.09e-01]    [2.30e-01, 2.71e-01, 9.09e-01]    []  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-12 11:43:25.890971: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:354] MLIR V1 optimization pass is not enabled
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0         [6.22e-02, 1.36e-02, 5.24e-01]    [6.22e-02, 1.36e-02, 5.24e-01]    []  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000      [4.44e-02, 3.73e-03, 6.66e-02]    [4.44e-02, 3.73e-03, 6.66e-02]    []  
-2000      [3.68e-02, 1.08e-03, 5.02e-02]    [3.68e-02, 1.08e-03, 5.02e-02]    []  
-3000      [2.75e-02, 3.96e-04, 3.88e-02]    [2.75e-02, 3.96e-04, 3.88e-02]    []  
-4000      [1.78e-02, 3.89e-04, 2.52e-02]    [1.78e-02, 3.89e-04, 2.52e-02]    []  
-5000      [1.06e-02, 1.31e-04, 1.40e-02]    [1.06e-02, 1.31e-04, 1.40e-02]    []  
-6000      [8.31e-03, 7.71e-05, 9.83e-03]    [8.31e-03, 7.71e-05, 9.83e-03]    []  
-7000      [7.01e-03, 5.07e-05, 6.62e-03]    [7.01e-03, 5.07e-05, 6.62e-03]    []  
-8000      [5.56e-03, 3.19e-05, 4.45e-03]    [5.56e-03, 3.19e-05, 4.45e-03]    []  
-9000      [4.29e-03, 2.89e-05, 3.76e-03]    [4.29e-03, 2.89e-05, 3.76e-03]    []  
-10000     [3.61e-03, 2.29e-05, 3.23e-03]    [3.61e-03, 2.29e-05, 3.23e-03]    []  
-11000     [2.91e-03, 1.82e-05, 2.52e-03]    [2.91e-03, 1.82e-05, 2.52e-03]    []  
-12000     [1.84e-03, 1.52e-05, 1.49e-03]    [1.84e-03, 1.52e-05, 1.49e-03]    []  
-13000     [1.51e-03, 1.50e-05, 1.21e-03]    [1.51e-03, 1.50e-05, 1.21e-03]    []  
-14000     [1.33e-03, 1.31e-05, 1.06e-03]    [1.33e-03, 1.31e-05, 1.06e-03]    []  
-15000     [1.23e-03, 1.08e-05, 9.74e-04]    [1.23e-03, 1.08e-05, 9.74e-04]    []  
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-06-04 20:49:47.343935: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:353] MLIR V1 optimization pass is not enabled
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000      [4.07e-02, 8.99e-04, 5.68e-02]    [4.07e-02, 8.99e-04, 5.68e-02]    []  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2000      [3.19e-02, 4.88e-05, 4.68e-02]    [3.19e-02, 4.88e-05, 4.68e-02]    []  
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3000      [2.58e-02, 1.04e-04, 3.73e-02]    [2.58e-02, 1.04e-04, 3.73e-02]    []  
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">losshistory</span><span class="p">,</span> <span class="n">train_state</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">iterations</span><span class="o">=</span><span class="mi">15000</span><span class="p">)</span>
 
-Best model at step 15000:
-  train loss: 2.22e-03
-  test loss: 2.22e-03
-  test metric: []
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/deepxde/utils/internal.py:22,</span> in <span class="ni">timing.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">ts</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">te</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">default_timer</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 
-&#39;train&#39; took 56.506519 s
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/deepxde/model.py:633,</span> in <span class="ni">Model.train</span><span class="nt">(self, iterations, batch_size, display_every, disregard_previous_best, callbacks, model_restore_path, model_save_path, epochs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">631</span>     <span class="k">if</span> <span class="n">iterations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No iterations for </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">opt_name</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">633</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_train_sgd</span><span class="p">(</span><span class="n">iterations</span><span class="p">,</span> <span class="n">display_every</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">634</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">on_train_end</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">636</span> <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/deepxde/model.py:651,</span> in <span class="ni">Model._train_sgd</span><span class="nt">(self, iterations, display_every)</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">on_batch_begin</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_state</span><span class="o">.</span><span class="n">set_data_train</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>     <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">train_next_batch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">651</span> <span class="bp">self</span><span class="o">.</span><span class="n">_train_step</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">652</span>     <span class="bp">self</span><span class="o">.</span><span class="n">train_state</span><span class="o">.</span><span class="n">X_train</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span>     <span class="bp">self</span><span class="o">.</span><span class="n">train_state</span><span class="o">.</span><span class="n">y_train</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>     <span class="bp">self</span><span class="o">.</span><span class="n">train_state</span><span class="o">.</span><span class="n">train_aux_vars</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_state</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_state</span><span class="o">.</span><span class="n">step</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/deepxde/model.py:540,</span> in <span class="ni">Model._train_step</span><span class="nt">(self, inputs, targets, auxiliary_vars)</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span> <span class="k">if</span> <span class="n">backend_name</span> <span class="o">==</span> <span class="s2">&quot;tensorflow.compat.v1&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span>     <span class="n">feed_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">feed_dict</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">auxiliary_vars</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">540</span>     <span class="bp">self</span><span class="o">.</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_step</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="n">feed_dict</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span> <span class="k">elif</span> <span class="n">backend_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;tensorflow&quot;</span><span class="p">,</span> <span class="s2">&quot;paddle&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span>     <span class="bp">self</span><span class="o">.</span><span class="n">train_step</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">auxiliary_vars</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/tensorflow/python/client/session.py:968,</span> in <span class="ni">BaseSession.run</span><span class="nt">(self, fetches, feed_dict, options, run_metadata)</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span> <span class="n">run_metadata_ptr</span> <span class="o">=</span> <span class="n">tf_session</span><span class="o">.</span><span class="n">TF_NewBuffer</span><span class="p">()</span> <span class="k">if</span> <span class="n">run_metadata</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">967</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">968</span>   <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">fetches</span><span class="p">,</span> <span class="n">feed_dict</span><span class="p">,</span> <span class="n">options_ptr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">969</span>                      <span class="n">run_metadata_ptr</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">970</span>   <span class="k">if</span> <span class="n">run_metadata</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="n">proto_data</span> <span class="o">=</span> <span class="n">tf_session</span><span class="o">.</span><span class="n">TF_GetBuffer</span><span class="p">(</span><span class="n">run_metadata_ptr</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/tensorflow/python/client/session.py:1191,</span> in <span class="ni">BaseSession._run</span><span class="nt">(self, handle, fetches, feed_dict, options, run_metadata)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1188</span> <span class="c1"># We only want to really perform the run if fetches or targets are provided,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span> <span class="c1"># or if the call is a partial run that specifies feeds.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1190</span> <span class="k">if</span> <span class="n">final_fetches</span> <span class="ow">or</span> <span class="n">final_targets</span> <span class="ow">or</span> <span class="p">(</span><span class="n">handle</span> <span class="ow">and</span> <span class="n">feed_dict_tensor</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1191</span>   <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_run</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">final_targets</span><span class="p">,</span> <span class="n">final_fetches</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1192</span>                          <span class="n">feed_dict_tensor</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">run_metadata</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1193</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1194</span>   <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/tensorflow/python/client/session.py:1371,</span> in <span class="ni">BaseSession._do_run</span><span class="nt">(self, handle, target_list, fetch_list, feed_dict, options, run_metadata)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1368</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_tf_sessionprun</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">feed_dict</span><span class="p">,</span> <span class="n">fetch_list</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1370</span> <span class="k">if</span> <span class="n">handle</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1371</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_call</span><span class="p">(</span><span class="n">_run_fn</span><span class="p">,</span> <span class="n">feeds</span><span class="p">,</span> <span class="n">fetches</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1372</span>                        <span class="n">run_metadata</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1374</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_call</span><span class="p">(</span><span class="n">_prun_fn</span><span class="p">,</span> <span class="n">handle</span><span class="p">,</span> <span class="n">feeds</span><span class="p">,</span> <span class="n">fetches</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/tensorflow/python/client/session.py:1378,</span> in <span class="ni">BaseSession._do_call</span><span class="nt">(self, fn, *args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span> <span class="k">def</span> <span class="nf">_do_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1377</span>   <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1378</span>     <span class="k">return</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1379</span>   <span class="k">except</span> <span class="n">errors</span><span class="o">.</span><span class="n">OpError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1380</span>     <span class="n">message</span> <span class="o">=</span> <span class="n">compat</span><span class="o">.</span><span class="n">as_text</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/tensorflow/python/client/session.py:1361,</span> in <span class="ni">BaseSession._do_run.&lt;locals&gt;._run_fn</span><span class="nt">(feed_dict, fetch_list, target_list, options, run_metadata)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1358</span> <span class="k">def</span> <span class="nf">_run_fn</span><span class="p">(</span><span class="n">feed_dict</span><span class="p">,</span> <span class="n">fetch_list</span><span class="p">,</span> <span class="n">target_list</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">run_metadata</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1359</span>   <span class="c1"># Ensure any changes to the graph are reflected in the runtime.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1360</span>   <span class="bp">self</span><span class="o">.</span><span class="n">_extend_graph</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1361</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_tf_sessionrun</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">feed_dict</span><span class="p">,</span> <span class="n">fetch_list</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1362</span>                                   <span class="n">target_list</span><span class="p">,</span> <span class="n">run_metadata</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/tensorflow/python/client/session.py:1454,</span> in <span class="ni">BaseSession._call_tf_sessionrun</span><span class="nt">(self, options, feed_dict, fetch_list, target_list, run_metadata)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span> <span class="k">def</span> <span class="nf">_call_tf_sessionrun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">feed_dict</span><span class="p">,</span> <span class="n">fetch_list</span><span class="p">,</span> <span class="n">target_list</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1453</span>                         <span class="n">run_metadata</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1454</span>   <span class="k">return</span> <span class="n">tf_session</span><span class="o">.</span><span class="n">TF_SessionRun_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">,</span> <span class="n">options</span><span class="p">,</span> <span class="n">feed_dict</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1455</span>                                           <span class="n">fetch_list</span><span class="p">,</span> <span class="n">target_list</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1456</span>                                           <span class="n">run_metadata</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -827,8 +804,8 @@ Best model at step 22242:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/pinn_34_0.png" src="../_images/pinn_34_0.png" />
-<img alt="../_images/pinn_34_1.png" src="../_images/pinn_34_1.png" />
+<img alt="../_images/641c756c4d9c207d10217ce665a3b30d450184493d7acc6a3a121df99995a466.png" src="../_images/641c756c4d9c207d10217ce665a3b30d450184493d7acc6a3a121df99995a466.png" />
+<img alt="../_images/dd9d200c979d9d768eef4c135887f63aedd58fa194fc89a2759121f2e1726d72.png" src="../_images/dd9d200c979d9d768eef4c135887f63aedd58fa194fc89a2759121f2e1726d72.png" />
 </div>
 </div>
 <p>Let’s compare the predicted solution with the real solution</p>
@@ -872,7 +849,7 @@ L2 relative error: 0.05253457073427108
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./chapters"
         },
         predefinedOutput: true
@@ -880,36 +857,93 @@ L2 relative error: 0.05253457073427108
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pinns">PINNs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-deepxde">Implementation: DeepXDE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-burguers-equation">Example: Burguers Equation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Alonso Ogueda & Padhu Seshaiyer<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Alonso Ogueda-Oliva & Padhu Seshaiyer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
