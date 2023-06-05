@@ -4,13 +4,14 @@
 format: jb-book
 root: index
 parts:
-  - caption: Computational Thinking
+  - caption: Foundations for Neural Computing
     chapters:
-    - file: chapters/computational_thinking_part1
-    - file: chapters/computational_thinking_part2
-  - caption: Regression
+    - file: chapters/foundations_neural_computing/toolkit
+    - file: chapters/foundations_neural_computing/python_foundations
+    - file: chapters/foundations_neural_computing/statistical_thinking_foundations
+    - file: chapters/foundations_neural_computing/mathematical_thinking_foundations
+    - file: chapters/foundations_neural_computing/computational_thinking_foundations
+  - caption: Machine Learning
     chapters:
-    - file: chapters/ml_regresssion
-  - caption: Classification
-    chapters:
-    - file: chapters/ml_classification
+    - file: chapters/machine_learning/ml_regresssion
+    - file: chapters/machine_learning/ml_classification
