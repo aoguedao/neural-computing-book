@@ -11,7 +11,31 @@ parts:
     - file: chapters/foundations_neural_computing/statistical_thinking_foundations
     - file: chapters/foundations_neural_computing/mathematical_thinking_foundations
     - file: chapters/foundations_neural_computing/computational_thinking_foundations
+  - caption: Data Science
+    chapters:
+    - file: chapters/data_science/data_exploration
+    - file: chapters/data_science/data_processing
+    - file: chapters/data_science/data_analysis
+    - file: chapters/data_science/data_visualization
+    - file: chapters/data_science/data_prediction
   - caption: Machine Learning
     chapters:
+    - file: chapters/machine_learning/ml_overview
     - file: chapters/machine_learning/ml_regresssion
     - file: chapters/machine_learning/ml_classification
+    - file: chapters/machine_learning/ml_clustering
+    - file: chapters/machine_learning/ml_validation
+    - file: chapters/machine_learning/ml_explainability
+  - caption: Scientific Machine Learning
+    chapters:
+    - file: chapters/scientific_machine_learning/neural_networks_part1
+    - file: chapters/scientific_machine_learning/neural_networks_part2
+    - file: chapters/scientific_machine_learning/pinn
+    - file: chapters/scientific_machine_learning/pinn_system_of_equations
+    - file: chapters/scientific_machine_learning/pinn_ode_parameter_estimation
+  - caption: Ethics
+    chapters:
+    - file: chapters/ethics/data_ethics
+  - caption: Applications
+    chapters:
+    - file: chapters/applications/pinn_sird

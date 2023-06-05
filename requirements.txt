@@ -6,4 +6,7 @@ pandas
 scipy
 scikit-learn
 tensorflow
+torch
+torchvision
+torchaudio
 deepxde
