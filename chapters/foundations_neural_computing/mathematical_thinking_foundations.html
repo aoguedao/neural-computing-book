@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Mathematical Thinking Foundations &#8212; Neural Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/foundations_neural_computing/mathematical_thinking_foundations';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Computational Thinking Foundations" href="computational_thinking_foundations.html" />
+    <link rel="prev" title="Statistical Thinking Foundations" href="statistical_thinking_foundations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/GMU_PLogo_4CP.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/GMU_PLogo_4CP.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Neural Computing Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations for Neural Computing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="toolkit.html">Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_foundations.html">Python Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistical_thinking_foundations.html">Statistical Thinking Foundations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mathematical Thinking Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computational_thinking_foundations.html">Computational Thinking Foundations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning/ml_regresssion.html">ML - Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning/ml_classification.html">ML - Classification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/foundations_neural_computing/mathematical_thinking_foundations.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/aoguedao/neural-computing-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/aoguedao/neural-computing-book/issues/new?title=Issue%20on%20page%20%2Fchapters/foundations_neural_computing/mathematical_thinking_foundations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/foundations_neural_computing/mathematical_thinking_foundations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mathematical Thinking Foundations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-differential-equations">Motivation for Differential Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-equation">General equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-methods">Numerical methods</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mathematical-thinking-foundations">
+<h1>Mathematical Thinking Foundations<a class="headerlink" href="#mathematical-thinking-foundations" title="Permalink to this heading">#</a></h1>
+<section id="motivation-for-differential-equations">
+<h2>Motivation for Differential Equations<a class="headerlink" href="#motivation-for-differential-equations" title="Permalink to this heading">#</a></h2>
+<p>An equation involving one dependent variable and its derivatives with respect to one or more independent variables is called a <em>differential equation</em>. Many of the general laws of nature—in physics, chemistry, biology, and astronomy—find their most natural expression in the language of differential equations. Applications also abound in mathematics itself, especially in geometry, and in engineering, economics, and many other fields of applied science {cite}’simmons2016differential’.</p>
+<p>At the beginning of our mathematical education we learned how to deal with simple equations such as</p>
+<div class="math notranslate nohighlight">
+\[
+2 x - 4 = x + 5
+\]</div>
+<p>and how to solve them (yep, the answer is <span class="math notranslate nohighlight">\(x=3\)</span>). But later we realized the solution of a equation could be not unique or even it could not exist. In these kind of equation we wanted to find the value of <span class="math notranslate nohighlight">\(x\)</span>, a number. Now we will try to extend this to equations where we need to find a <strong>function</strong> <span class="math notranslate nohighlight">\(f(x)\)</span>. Just like <span class="math notranslate nohighlight">\(2x\)</span> or <span class="math notranslate nohighlight">\(\cos(x)\)</span> are operations we applied on <span class="math notranslate nohighlight">\(x\)</span>, we can think that <span class="math notranslate nohighlight">\(2 f(x)\)</span> and <span class="math notranslate nohighlight">\(\cos(f(x))\)</span> are applied on <span class="math notranslate nohighlight">\(f(x)\)</span>. However, we will be interested in equations involving the derivatives of <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p>You will recall that if <span class="math notranslate nohighlight">\(y=f(x)\)</span> is a given function, then its derivative <span class="math notranslate nohighlight">\(dy/dx\)</span> can be interpreted as the rate of change of <span class="math notranslate nohighlight">\(y\)</span> with respect to $$. In any natural process, the variables involved and their rates of change are connected with one another by means of the basic scientific principles that govern the process. When this connection is expressed in mathematical symbols, the result is often a differential equation.</p>
+<p>Just for listing a few examples of differential equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{dy}{dt} = -k y \\
+m\frac{d^2 y}{dt^2} = -k y\\
+\frac{dy}{dx} + 2xy = e^{-x^2}\\
+\frac{d^2y}{dx^2} - 5 \frac{dy}{dx} + 6y = 0\\
+\end{split}\]</div>
+<p>where the dependent variable in each of these equations is <span class="math notranslate nohighlight">\(y\)</span>, and the independent variable is either <span class="math notranslate nohighlight">\(t\)</span> or <span class="math notranslate nohighlight">\(x\)</span>. The letters <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(m\)</span> represent constants (usually associated a some physical phenomenon).</p>
+</section>
+<section id="general-equation">
+<h2>General equation<a class="headerlink" href="#general-equation" title="Permalink to this heading">#</a></h2>
+<p>An <strong>ordinary differential equation</strong> is one in which there is only one independent variable, so that all the derivatives occurring in it are ordinary derivatives.</p>
+<p>The <strong>order</strong> of a differential equation is the order of the highest derivative present.
+A general ordinary differential equation of <span class="math notranslate nohighlight">\(n\)</span>-th order can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+F\left( x, y, \frac{dy}{dx}, \frac{d^2y}{dx^2}, \ldots, \frac{d^n y}{dx^n} \right) = 0
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(F\)</span> is just an operator. Any adequate theoretical discussion of this equation would have to be based on a careful study of explicitly assumed properties of the function <span class="math notranslate nohighlight">\(F\)</span>.
+Consider the equation</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dx} = 2 y,
+\]</div>
+<p>it is simple to verify that the function <span class="math notranslate nohighlight">\(y = e^{2x}\)</span> it is a solution. The problem of starting with a differential equation and finding a solution is naturally much more difficult.</p>
+<p>There are several solving methods for different types of ordinary differential equations, most of them covered in books. However, sometimes it is hard to find an analytical solution and then it is necessary to apply numerical methods. Next lessons will include examples of numerical applications on ordinary differential equations.</p>
+</section>
+<section id="numerical-methods">
+<h2>Numerical methods<a class="headerlink" href="#numerical-methods" title="Permalink to this heading">#</a></h2>
+<p>Often we can’t find an analytical solution, therefore there are some classic approaches for finding numerical solutions.</p>
+<p>Single-step Runge–Kutta methods associate a function <span class="math notranslate nohighlight">\(\Phi(t, y, h)\)</span> which requires (possibly repeated) function evaluations of <span class="math notranslate nohighlight">\(f(t, y)\)</span> but not its derivatives.</p>
+<p>In general, single-step Runge–Kutta methods have the form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y_0 = y(a) \\
+y_{k+1} = y_k + h \Phi(t_k ,y_k, h)
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\Phi(t_k ,y_k, h) = \sum_{r=1}^R c_r K_r, \\
+K_1 = f(t, y), \\
+K_r = f(t + a_r h, y + h \sum_{s=1}^{r-1}b_{rs} K_s), \\
+a_r = \sum_{s=1}^{r-1}b_{rs}, \qquad r=2, 3, \ldots, R
+\end{split}\]</div>
+<p>The most well-known Runge–Kutta scheme (from elementary numerical analysis texts) is 4-th order; it has the
+form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y_0 = y(t_0) \\
+y_{k+1} = y_k + \frac{h}{6} \left[ K_1 + 2 K_2 + 2 K_3 + K4 \right] \\
+K_1 = f(t_k, y_k) \\
+K_2 = f\left(t_k + \frac{h}{2}, y_k + \frac{h}{2} K_1 \right) \\
+K_3 = f\left(t_k + \frac{h}{2}, y_k + \frac{h}{2} K_2 \right) \\
+K_4 = f(t_k + h, y_k + h K_3)
+\end{split}\]</div>
+<p>i.e.,
+$<span class="math notranslate nohighlight">\(
+\Phi(t_k, y_k, h) = \frac{h}{6} \left[ K_1 + 2 K_2 + 2 K_3 + K4 \right]
+\)</span>$</p>
+<p>Let’s consider the following initial value problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y^\prime(t) = \frac{t}{9} \cos(2y) + t^2 \\
+y(0) = 1
+\end{split}\]</div>
+<p>We need a package for scientific computing (<code class="docutils literal notranslate"><span class="pre">numpy</span></code>), plotting (<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>) and a tool for solving initial values problems with Runge-Kuta methods (<code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First of all, you need to define a function which takes as arguments <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(y\)</span> and returns the right side of the equation. In this case,
+$<span class="math notranslate nohighlight">\(
+f(t, y) = \frac{t}{9} \cos(2y) + t^2
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">t</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we need to define the domain where we will solve the equation. Since our initial condition is in <span class="math notranslate nohighlight">\(t_0=0\)</span> our domain must include it. And consider, just as an example, the final time as <span class="math notranslate nohighlight">\(t_n = 10\)</span> and <span class="math notranslate nohighlight">\(h=0.5\)</span> (later you can try smaller values!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tn</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">t_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t0</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<span class="n">t_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. , 5.5, 6. ,
+       6.5, 7. , 7.5, 8. , 8.5, 9. , 9.5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> function only needs <span class="math notranslate nohighlight">\(f(t, y)\)</span>, a time span (<code class="docutils literal notranslate"><span class="pre">t_span</span></code>) and initial conditions (<code class="docutils literal notranslate"><span class="pre">y_0</span></code>), however, we can include the points where the solution we will be evaluate with <code class="docutils literal notranslate"><span class="pre">t_eval</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t_span</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">y0</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, you can get the solution points with <code class="docutils literal notranslate"><span class="pre">sol.y</span></code> but for plotting we need a flat array (just use <code class="docutils literal notranslate"><span class="pre">.flatten()</span></code> method).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_sol</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_array</span><span class="p">,</span> <span class="n">y_sol</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$t$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y(t)$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Numerical solution using Runge–Kutta method&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fd810252d12f6215d814f1281f3ad8c3677f2e5351669ba0ffdb1c1822894d26.png" src="../../_images/fd810252d12f6215d814f1281f3ad8c3677f2e5351669ba0ffdb1c1822894d26.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/foundations_neural_computing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="statistical_thinking_foundations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Statistical Thinking Foundations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="computational_thinking_foundations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Computational Thinking Foundations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation-for-differential-equations">Motivation for Differential Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-equation">General equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-methods">Numerical methods</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alonso Ogueda-Oliva & Padhu Seshaiyer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

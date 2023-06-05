@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Toolkit &#8212; Neural Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/foundations_neural_computing/toolkit';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Python Foundations" href="python_foundations.html" />
+    <link rel="prev" title="Neural Computing Book" href="../../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/GMU_PLogo_4CP.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/GMU_PLogo_4CP.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Neural Computing Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Foundations for Neural Computing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_foundations.html">Python Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistical_thinking_foundations.html">Statistical Thinking Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathematical_thinking_foundations.html">Mathematical Thinking Foundations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computational_thinking_foundations.html">Computational Thinking Foundations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning/ml_regresssion.html">ML - Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../machine_learning/ml_classification.html">ML - Classification</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/aoguedao/neural-computing-book/blob/main/chapters/foundations_neural_computing/toolkit.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/aoguedao/neural-computing-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/aoguedao/neural-computing-book/issues/new?title=Issue%20on%20page%20%2Fchapters/foundations_neural_computing/toolkit.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/foundations_neural_computing/toolkit.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Toolkit</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">What is Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operating-system">Operating System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environments">Virtual Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter">Project Jupyter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">Jupyter Lab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book">Jupyter Book</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-github">Git &amp; GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casbbi-nrt">CASBBI - NRT</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="toolkit">
+<h1>Toolkit<a class="headerlink" href="#toolkit" title="Permalink to this heading">#</a></h1>
+<section id="what-is-data-science">
+<h2>What is Data Science?<a class="headerlink" href="#what-is-data-science" title="Permalink to this heading">#</a></h2>
+<p>The term <em>data scientist</em> was coined as recently as 2008 when companies realized the need for data professionals who are skilled in organizing and analyzing massive amounts of data. In a 2009 McKinsey&amp;Company article, Hal Varian, Google’s chief economist and UC Berkeley professor of information sciences, business, and economics, predicted the importance of adapting to technology’s influence and reconfiguration of different industries.</p>
+<p>– <cite><a class="reference external" href="https://ischoolonline.berkeley.edu/data-science/what-is-data-science/#fn1b">UC Berkeley School of Information Online</a></cite> –</p>
+<p><em>Data science</em> is the study of data to extract meaningful insights for business. It is a multidisciplinary approach that combines principles and practices from the fields of mathematics, statistics, artificial intelligence, and computer engineering to analyze large amounts of data. This analysis helps data scientists to ask and answer questions like what happened, why it happened, what will happen, and what can be done with the results.</p>
+<p>–<cite> <a class="reference external" href="https://aws.amazon.com/what-is/data-science/">Amazon Web Services</a> </cite>–</p>
+<p>Data science combines math and statistics, specialized programming, advanced analytics, artificial intelligence (AI), and machine learning with specific subject matter expertise to uncover actionable insights hidden in an organization’s data. These insights can be used to guide decision making and strategic planning.</p>
+<p>–<cite> <a class="reference external" href="https://www.ibm.com/topics/data-science">IBM</a> </cite>–</p>
+<blockquote>
+<div><p>Data Scientist: The Sexiest Job of the 21st Century</p>
+<p>–<cite> <a class="reference external" href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">Harvard Business Review - 2012</a> </cite>–</p>
+</div></blockquote>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><a class="reference external" href="https://hbr.org/2022/07/is-data-scientist-still-the-sexiest-job-of-the-21st-century">Is Data Scientist Still the Sexiest Job of the 21st Century? - Harvard Business Review - 2022</a></p>
+</div>
+</section>
+<section id="operating-system">
+<h2>Operating System<a class="headerlink" href="#operating-system" title="Permalink to this heading">#</a></h2>
+<p>An operating system (OS) is system software that manages computer hardware and software resources, and provides common services for computer programs. - <a class="reference external" href="https://en.wikipedia.org/wiki/Operating_system">Wikipedia</a></p>
+<div class="note dropdown admonition">
+<p class="admonition-title">What operating system should I use for data science?</p>
+<p>For now it doesn’t matter.</p>
+<p>BUT, in general, servers and cloud services use Linux as operating system.</p>
+</div>
+</section>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>Python is powerful… and fast;<br />
+plays well with others;<br />
+runs everywhere;<br />
+is friendly &amp; easy to learn;<br />
+is Open.</p>
+<p><a class="reference external" href="https://www.python.org/about/">https://www.python.org/about/</a></p>
+</div></blockquote>
+<p>Python is a high-level, interpreted programming language that was first released in 1991. It was designed to be easy to read and write, with a simple and consistent syntax that emphasizes readability and reduces the cost of program maintenance. It is a general-purpose language that can be used for a wide variety of tasks, including web development, data analysis, scientific computing, artificial intelligence, and more.</p>
+<p>Python’s popularity is due to several factors. Firstly, it has a large and active community of developers who contribute to its development, provide support, and create libraries and tools for various applications. This community has helped to make Python one of the most widely used programming languages in the world.</p>
+<p>Secondly, Python’s simplicity and readability make it a great language for beginners and experienced programmers alike. It is easy to learn and use, and it allows developers to focus on solving problems rather than worrying about syntax and technical details.</p>
+<p>Thirdly, Python has a vast ecosystem of libraries and frameworks that can be used for a wide range of applications. These libraries and frameworks provide developers with a wide range of tools and features that can help them develop complex applications quickly and efficiently.</p>
+<p>Finally, Python’s versatility and flexibility make it an ideal language for a wide range of applications, from scientific computing to web development to data analysis and beyond. Its ease of use, strong community, and wide range of applications make Python one of the most popular programming languages in the world.</p>
+<p>Sources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.blog/2023-03-02-why-python-keeps-growing-explained">https://github.blog/2023-03-02-why-python-keeps-growing-explained</a></p></li>
+<li><p><a class="reference external" href="https://octoverse.github.com/2022/top-programming-languages">https://octoverse.github.com/2022/top-programming-languages</a></p></li>
+<li><p><a class="reference external" href="https://survey.stackoverflow.co/2022/">https://survey.stackoverflow.co/2022/</a></p></li>
+</ul>
+</section>
+<section id="virtual-environments">
+<h2>Virtual Environments<a class="headerlink" href="#virtual-environments" title="Permalink to this heading">#</a></h2>
+<p>A virtual environment is a tool that allows users to create an isolated and self-contained environment on their computer, where they can install and run software without affecting their system’s global settings or other installed software.</p>
+<p>In non-technical terms, a virtual environment is like a “sandbox” on your computer, where you can experiment with different software and tools without worrying about accidentally breaking anything on your computer.</p>
+<p>Alternatives:</p>
+<ul class="simple">
+<li><p>Conda / Anaconda / Mamba / Micromamba</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span></code> + <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Docker</span></code></p></li>
+</ul>
+<p>Don’t worry, we won’t use virtual environments in these lessons but it is good to know their existence.</p>
+</section>
+<section id="project-jupyter">
+<h2>Project Jupyter<a class="headerlink" href="#project-jupyter" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p>Free software, open standards, and web services for interactive computing across all programming languages.</p>
+</div></blockquote>
+<p>Project Jupyter is a non-profit, open-source project, born out of the IPython Project in 2014 as it evolved to support interactive data science and scientific computing across all programming languages. Jupyter will always be 100% open-source software, free for all to use and released under the liberal terms of the modified BSD license.</p>
+<p><a class="reference external" href="https://jupyter.org/about">https://jupyter.org/about</a></p>
+<section id="jupyter-notebooks">
+<h3>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this heading">#</a></h3>
+<p>The notebook extends the console-based approach to interactive computing in a qualitatively new direction, providing a web-based application suitable for capturing the whole computation process: developing, documenting, and executing code, as well as communicating the results. The Jupyter notebook combines two components:</p>
+<p>A web application: a browser-based tool for interactive authoring of documents which combine explanatory text, mathematics, computations and their rich media output.</p>
+<p>Notebook documents: a representation of all content visible in the web application, including inputs and outputs of the computations, explanatory text, mathematics, images, and rich media representations of objects.</p>
+<p>In non-technical terms, Jupyter Notebooks are like a digital notebooks that lets you write code, view results, and explain your thought process all in one place. You can use it to write programs in popular programming languages like Python, R, and Julia, and see the output of your code immediately in the notebook.</p>
+<p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/latest/notebook.html#introduction">https://jupyter-notebook.readthedocs.io/en/latest/notebook.html#introduction</a></p>
+<p><img alt="JupyterNotebook" src="https://jupyter.org/assets/homepage/jupyterpreview.webp" /></p>
+</section>
+<section id="jupyter-lab">
+<h3>Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Permalink to this heading">#</a></h3>
+<p>JupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. A modular design invites extensions to expand and enrich functionality.</p>
+<p><img alt="JupyterLab" src="https://jupyter.org/assets/homepage/labpreview.webp" /></p>
+</section>
+<section id="jupyter-book">
+<h3>Jupyter Book<a class="headerlink" href="#jupyter-book" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>Build beautiful, publication-quality books and documents from computational content.</p>
+<p><a class="reference external" href="https://jupyterbook.org/">https://jupyterbook.org/</a></p>
+</div></blockquote>
+<p>Jupyter Book is an open-source tool for building publication-quality books and documents from computational material.</p>
+<p>Jupyter Book allows users to</p>
+<ul class="simple">
+<li><p>write their content in <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">markdown files</a> or <a class="reference external" href="https://jupyter.org/">Jupyter</a> notebooks,</p></li>
+<li><p>include computational elements (e.g., code cells) in either type,</p></li>
+<li><p>include rich syntax such as citations, cross-references, and numbered equations, and</p></li>
+<li><p>using a simple command, run the embedded code cells, <a class="reference external" href="https://jupyter-cache.readthedocs.io/en/latest/">cache</a> the outputs and convert this content into:</p>
+<ul>
+<li><p>a web-based interactive book and</p></li>
+<li><p>a publication-quality PDF.</p></li>
+</ul>
+</li>
+</ul>
+<p><a class="github reference external" href="https://github.com/executablebooks/jupyter-book">executablebooks/jupyter-book</a></p>
+<div class="admonition-fun-fact admonition">
+<p class="admonition-title">Fun fact</p>
+<p>This website is made with Jupyter Book!</p>
+</div>
+</section>
+<section id="google-colab">
+<h3>Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this heading">#</a></h3>
+<p>Colaboratory, or “Colab” for short, is a product from Google Research. Colab allows anybody to write and execute arbitrary python code through the browser, and is especially well suited to machine learning, data analysis and education. More technically, Colab is a hosted Jupyter notebook service that requires no setup to use, while providing access free of charge to computing resources including GPUs.</p>
+<p><a class="reference external" href="https://research.google.com/colaboratory/faq.html">https://research.google.com/colaboratory/faq.html</a></p>
+<div class="admonition-what-is-the-difference-between-jupyter-and-colab admonition">
+<p class="admonition-title">What is the difference between Jupyter and Colab?</p>
+<p>Jupyter is the open source project on which Colab is based. Colab allows you to use and share Jupyter notebooks with others without having to download, install, or run anything.</p>
+</div>
+</section>
+</section>
+<section id="git-github">
+<h2>Git &amp; GitHub<a class="headerlink" href="#git-github" title="Permalink to this heading">#</a></h2>
+<blockquote>
+<div><p><em><a class="reference external" href="https://git-scm.com/">Git</a> is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</em></p>
+</div></blockquote>
+<blockquote>
+<div><p><em><a class="reference external" href="https://github.com/">GitHub</a> is a development platform inspired by the way you work. From open source to business, you can host and review code, manage projects, and build software alongside 30 million developers.</em></p>
+</div></blockquote>
+<p>Git allows you to keep track of every change made to your code and easily revert to a previous version if needed. Think of it like a “time machine” for your code.</p>
+<p>GitHub, on the other hand, is a website and platform that hosts Git repositories in the cloud. It provides an online space for developers to store and collaborate on their code projects, as well as to share their code with others.</p>
+<p>In summary, Git is a tool for version control, while GitHub is a platform that makes it easier to use Git for collaboration and sharing code.</p>
+<p>There are other alternatives to GitHub such as GitLab or BitBucket.</p>
+</section>
+<section id="casbbi-nrt">
+<h2>CASBBI - NRT<a class="headerlink" href="#casbbi-nrt" title="Permalink to this heading">#</a></h2>
+<p>The Data Science learning stream will cover the following topics:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Topic</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Data Science Toolkit</p></td>
+<td><p>Use and execute workflows with Python, Google Colab (or Jupyter Notebooks) and GitHub</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data Analysis</p></td>
+<td><p>Gather, explore, clean and analyze different types of datasets.</p></td>
+</tr>
+<tr class="row-even"><td><p>Data Visualization</p></td>
+<td><p>Interprete basics of visualization theory and apply it on different datasets using python libraries</p></td>
+</tr>
+<tr class="row-odd"><td><p>Machine Learning</p></td>
+<td><p>Explain when machine learning is an adequate approach for solving problems</p></td>
+</tr>
+</tbody>
+</table>
+<p>And some optional and a bit more advanced topics are:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Advance Topic</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Model Selection</p></td>
+<td><p>Compare different ML models for the same dataset</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gradient Descent</p></td>
+<td><p>Describe how gradient descent algorithm works</p></td>
+</tr>
+<tr class="row-even"><td><p>ML Non-Parametric</p></td>
+<td><p>Interprete non-parametric models such as decision trees and random forest</p></td>
+</tr>
+<tr class="row-odd"><td><p>Data Ethics</p></td>
+<td><p>Recognize when data could be potentially biased</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-fun-fact admonition">
+<p class="admonition-title">Fun fact</p>
+<p>Some of the paragraphs in this lesson were written by <a class="reference external" href="https://openai.com/blog/chatgpt">ChatGPT3</a>!</p>
+<p>However, we checked the answers and some of them were modified a little bit.</p>
+<p>Can you guess which ones were written by this artificial intelligence?</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/foundations_neural_computing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Neural Computing Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="python_foundations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python Foundations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-science">What is Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operating-system">Operating System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environments">Virtual Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-jupyter">Project Jupyter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">Jupyter Lab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book">Jupyter Book</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git-github">Git &amp; GitHub</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casbbi-nrt">CASBBI - NRT</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alonso Ogueda-Oliva & Padhu Seshaiyer
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
